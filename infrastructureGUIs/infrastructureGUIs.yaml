@@ -1,0 +1,8 @@
+name: infrastructureGUIs
+version: 1.0
+main: com.inpuzah.infrastructureGUIs
+api-version: 1.16
+commands:
+  opengui:
+    description: Opens the custom GUI
+    usage: /opengui
