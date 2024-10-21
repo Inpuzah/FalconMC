@@ -1,0 +1,7 @@
+every 10 minutes:
+    broadcast "&b&6BG&r&7SU&r >> &eNotification: &rType /campus to check out the community BGSU campus rebuild, featured on BGSU's Official Social Media!"
+
+command /campusAnnounce:
+    trigger:
+        broadcast "&6&lBG&r&7SU&6 Notification &r>> Type /campus to check out the community BGSU campus rebuild, featured on BGSU's Official Social Media!"
+        send "&aYou forced an announcement!" to player

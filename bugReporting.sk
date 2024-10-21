@@ -1,0 +1,46 @@
+# Skript: /issue command with a GUI
+
+command /issue:
+    trigger:
+        open virtual chest inventory with size 3 named "&b&6BG&r&7SU&r >> &eSelect an issue" to player
+        format slot 11 of player's current inventory with paper named "&eServer Report" with lore "&7Click to submit a server bug report"
+        format slot 13 of player's current inventory with player head named "&eDeath due to bug" with lore "&7Click if you died due to a bug"
+        format slot 15 of player's current inventory with diamond sword named "&eStaff Portal" with lore "&7Click to access staff options"
+
+on inventory click:
+    if name of player's current inventory is "&b&6BG&r&7SU&r >> &eSelect an issue":
+        cancel event
+        if clicked slot is 11:
+            close player's inventory
+            send "&b&6BG&r&7SU&r >> &aPlease describe the bug in chat."
+            send "&b&6BG&r&7SU&r >> &eYour bug report has been submitted!" to player
+        if clicked slot is 13:
+            close player's inventory
+            send "&b&6BG&r&7SU&r >> &eA staff member will restore your inventory shortly." to player
+        if clicked slot is 15:
+            close player's inventory
+            open virtual chest inventory with size 3 named "&b&6BG&r&7SU&r >> &eStaff Portal" to player
+            format slot 10 of player's current inventory with redstone named "&eTest Option 1"
+            format slot 12 of player's current inventory with redstone named "&eTest Option 2"
+            format slot 14 of player's current inventory with redstone named "&eTest Option 3"
+            format slot 16 of player's current inventory with redstone named "&eTest Option 4"
+            format slot 18 of player's current inventory with redstone named "&eTest Option 5"
+
+on inventory click:
+    if name of player's current inventory is "&b&6BG&r&7SU&r >> &eStaff Portal":
+        cancel event
+        if clicked slot is 10:
+            close player's inventory
+            send "&b&6BG&r&7SU&r >> &eTest Option 1 is working!" to player
+        if clicked slot is 12:
+            close player's inventory
+            send "&b&6BG&r&7SU&r >> &eTest Option 2 is working!" to player
+        if clicked slot is 14:
+            close player's inventory
+            send "&b&6BG&r&7SU&r >> &eTest Option 3 is working!" to player
+        if clicked slot is 16:
+            close player's inventory
+            send "&b&6BG&r&7SU&r >> &eTest Option 4 is working!" to player
+        if clicked slot is 18:
+            close player's inventory
+            send "&b&6BG&r&7SU&r >> &eTest Option 5 is working!" to player

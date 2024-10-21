@@ -1,0 +1,3 @@
+on join:
+    wait 12 seconds
+    broadcast "&b&6BG&r&7SU&r >> &4WARNING: &rGriefing others' build or taking items that you did not earn is PROHIBITED. Violators are automatically flagged for review by staff!"

@@ -1,0 +1,17 @@
+variables:
+    {BGSUHeader} = "&6&lBG&r&7SU&r » &6"
+
+command /announce [<number>] [<text>]:
+    permission: announce.use
+    permission message: &6&lBG&r&7SU&r » &6You don't have permission to broadcast messages over the BGSU channel.
+    aliases: /warn
+    trigger:
+        if arg 1 is 1:
+            broadcast "&6&lBG&r&7SU&r » &6%argument 2%"
+            stop trigger
+        if arg 2 is set:
+            broadcast "&6&lBG&r&7SU&r » &b[&l%player%&r&b] &6%argument 2%"
+            execute command "/dsend send warn %argument 2%" by console
+        if arg 2 is not set:
+            message "&c&l<!> &cUsage: &f/bc <msg>"
+			        

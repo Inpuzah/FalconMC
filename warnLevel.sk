@@ -1,0 +1,13 @@
+variables:
+    {BGSUHeader} = "&6&lBG&r&7SU&r » &6"
+
+command /bgdm [<player>] [<text>]:
+    permission: bgdm.use
+    permission message: &6&lBG&r&7SU&r » &6You don't have permission to broadcast messages over the BGSU channel.
+    aliases: /bgpm
+    trigger:
+        if arg 2 is set:
+            message %argument 1% "&6&lBG&r&7SU&r » &6%argument 2%"
+        if arg 2 is not set:
+            message "&c&l<!> &cUsage: &f/bc <msg>"
+			         

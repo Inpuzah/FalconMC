@@ -1,0 +1,15 @@
+# Skript: Teleport player to spawn
+
+command /spawn:
+    trigger:
+        if world of player is "falcon":
+            teleport player to location 0, 66, 0 in world "falcon"
+            send "&6&lBG&r&7SU&r » &eYou have been teleported to spawn!" to player
+        else if world of player is "falcon_nether":
+            teleport player to location 0, 66, 0 in world "falcon"
+            send "&6&lBG&r&7SU&r » &eYou have been teleported to spawn!" to player
+        else if world of player is "falcon_the_end":
+            teleport player to location 0, 66, 0 in world "falcon"
+            send "&6&lBG&r&7SU&r » &eYou have been teleported to spawn!" to player
+        else:
+            send "&6&lBG&r&7SU&r » &4You are not in the correct world to issue this! Please switch to &3falcon, falcon_nether, &4or &3falcon_end&4!" to player

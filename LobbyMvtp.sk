@@ -1,0 +1,7 @@
+command /lobby:
+    permission: skript.lobby
+    permission message: "&cYou do not have permission to use this command!"
+    trigger:
+        set {_player} to player
+        execute console command "mvtp %{_player}% lobby1"
+        send "&aYou have been teleported to the lobby!"
