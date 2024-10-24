@@ -17,6 +17,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class infrastructureGUIs extends JavaPlugin implements Listener {
 
     @Override
@@ -46,14 +49,21 @@ public class infrastructureGUIs extends JavaPlugin implements Listener {
 
     // Method to create and open the custom GUI
     public void openCustomGUI(Player player) {
-        // Create a new inventory with a size of 9 slots and a custom title
-        Inventory gui = Bukkit.createInventory(null, 9, "Custom GUI");
+        // Create a new inventory with 27 slots
+        Inventory gui = Bukkit.createInventory(null, 27, "Enhanced Custom GUI");
 
         // Create items to add to the GUI
         ItemStack item1 = new ItemStack(Material.DIAMOND);
         ItemMeta meta1 = item1.getItemMeta();
         if (meta1 != null) {
             meta1.setDisplayName("Shiny Diamond");
+
+            // Add lore (description) to the diamond
+            List<String> lore1 = new ArrayList<>();
+            lore1.add("A very shiny diamond!");
+            lore1.add("It's priceless!");
+            meta1.setLore(lore1);
+
             item1.setItemMeta(meta1);
         }
 
@@ -61,12 +71,19 @@ public class infrastructureGUIs extends JavaPlugin implements Listener {
         ItemMeta meta2 = item2.getItemMeta();
         if (meta2 != null) {
             meta2.setDisplayName("Magic Apple");
+
+            // Add lore to the apple
+            List<String> lore2 = new ArrayList<>();
+            lore2.add("A magical apple!");
+            lore2.add("Click to gain health.");
+            meta2.setLore(lore2);
+
             item2.setItemMeta(meta2);
         }
 
         // Add items to the GUI
-        gui.setItem(3, item1); // Position the diamond at slot 3
-        gui.setItem(5, item2); // Position the apple at slot 5
+        gui.setItem(11, item1); // Position the diamond at slot 11
+        gui.setItem(15, item2); // Position the apple at slot 15
 
         // Open the GUI for the player
         player.openInventory(gui);
@@ -75,17 +92,21 @@ public class infrastructureGUIs extends JavaPlugin implements Listener {
     // Handle clicking in the custom GUI
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
-        if (event.getView().getTitle().equals("Custom GUI")) {
+        if (event.getView().getTitle().equals("Enhanced Custom GUI")) {
             event.setCancelled(true); // Prevent taking the items
 
-            if (event.getCurrentItem() != null) {
+            if (event.getCurrentItem() != null && event.getCurrentItem().hasItemMeta()) {
                 Player player = (Player) event.getWhoClicked();
                 ItemStack clickedItem = event.getCurrentItem();
+                String displayName = clickedItem.getItemMeta().getDisplayName();
 
-                if (clickedItem.getType() == Material.DIAMOND) {
+                // Perform actions based on the clicked item
+                if (displayName.equals("Shiny Diamond")) {
                     player.sendMessage("You clicked on the Shiny Diamond!");
-                } else if (clickedItem.getType() == Material.APPLE) {
+                } else if (displayName.equals("Magic Apple")) {
                     player.sendMessage("You clicked on the Magic Apple!");
+                    // Give the player a health boost
+                    player.setHealth(Math.min(player.getHealth() + 4.0, player.getMaxHealth()));
                 }
 
                 // Close the GUI
