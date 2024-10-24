@@ -1,0 +1,6 @@
+name: RottenSmelt
+version: 1.0
+main: com.Inpuzah.RottenSmelt.Main
+api-version: 1.21
+description: smelts rotten flesh to leather. Nothing else to it.
+author: FalconMC
