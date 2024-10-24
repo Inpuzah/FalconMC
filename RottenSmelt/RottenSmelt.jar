@@ -1,0 +1,33 @@
+// This will automatically smelt rotten flesh into leather if placed into a furnace. 
+// This completely revamps the old plugin which no longer works due to how the code was written.
+
+// Content to go out in a future update to the server.
+
+package com.inpuzah.rottensmelt;
+
+import org.bukkit.Material;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.FurnaceSmeltEvent;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class RottenSmelt extends JavaPlugin implements Listener {
+
+    @Override
+    public void onEnable() {
+        getServer().getPluginManager().registerEvents(this, this);
+        getLogger().info("[Falcon Infrastructure] Rotten Smelt is active and enabled");
+    }
+
+    @Override
+    public void onDisable() {
+        getLogger().info("[Falcon Infrastructure] Rotten Smelt has been disabled!");
+    }
+
+    @EventHandler
+    public void onFurnaceSmelt(FurnaceSmeltEvent event) {
+        if (event.getSource().getType() == Material.ROTTEN_FLESH) {
+            event.setResult(new org.bukkit.inventory.ItemStack(Material.LEATHER));
+        }
+    }
+}
