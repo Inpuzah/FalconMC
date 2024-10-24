@@ -11,7 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.FurnaceSmeltEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class RottenSmelt extends JavaPlugin implements Listener {
+public class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
