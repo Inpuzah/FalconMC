@@ -2,6 +2,8 @@
 // WARNING: Use of this script in the production server is a VIOLATION of copyright and intellectual property!!!! MAKE YOUR OWN AND USE THIS AS GUIDANCE!!!!!!
 // Email the administrators or send a message to #SALARY-EMP-HELP if you have questions!!!
 
+// Updated for 1.21.5
+
 package com.inpuzah;
 
 import org.bukkit.Bukkit;
